@@ -18,7 +18,7 @@
 		    <div class="panel-heading">{{tag}}</div>
 		    <table class="table" ng-controller="getLinksCtrl" ng-init="{{tag}}">
 			    <tr ng-repeat="article in links | filter:search">
-				    <td><img src="http://g.etfv.co/{{article.u}}" alt="Google" width="16" height="16" /></td>
+				    <td><img src="http://g.etfv.co/{{article.u}}" alt="{{article.d}}" width="16" height="16" /></td>
 				    <td><a href="{{article.u}}">{{article.d}}</a></td>
 			    </tr>
 		    </table>
