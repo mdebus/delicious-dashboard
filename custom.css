@@ -1,0 +1,59 @@
+body {
+	background-color: #e8e8e8;
+	font-size:12px;
+}
+.container {
+	width:100%;
+	margin:0;
+	padding:0;
+}
+#header-bar {
+	background-color:#0b79e5;
+	padding:3px 15px;
+	height:35px
+}
+#header-bar>form {
+	float:left;
+	margin:0;
+}
+#header-bar>form>input {
+	padding:3px;
+}
+.col-xs-2 {
+	padding:0;
+}
+.panel {
+	margin:0;
+	height: 47%;
+	overflow-y:scroll;
+	border:0;
+	border-radius:0;
+}
+.panel-heading {
+	padding:2px 8px;
+	font-weight:bold;
+	border:none;
+	border-radius:0;
+}
+table {
+	font-size:12px;
+	padding:0;
+}
+table tr td a {
+	display:block;
+	height:100%;
+	width:100%;
+	padding:5px;
+}
+table tr td a:hover {
+	background-color:#eee;
+	text-decoration:none;
+}
+table tr td a img {
+	margin:-1px 5px 0 0;
+	width:16px;
+	height:16px;
+}
+.table>tbody>tr>td {
+	padding:0;
+}
