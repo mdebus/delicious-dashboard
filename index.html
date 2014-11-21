@@ -1,4 +1,4 @@
-<html ng-app="tutorialApp">
+<html ng-app="deliciousDashboardApp">
 <head>
 <meta charset="utf8" />
 <title>Delicious Bookmark Dashboard</title>
@@ -6,31 +6,21 @@
 <link rel="stylesheet" href="custom.css">
 
 </head>
-<body ng-controller="mainCtrl">
+<body ng-app="myApp" ng-controller="mainCtrl">
   <div id="header-bar">
     <form>
-      <input class="main-search" type="text" ng-model="search">
+      <input class="main-search" type="text" ng-model="search" placeholder="Search">
       <!--  <p ng-show="search">Du suchst gerade nach: {{search}}</p>-->
     </form>
-    <a ng-click="toggleTags()" style="float:right">Tags/Neuste</a>
+    <a href="#/settings" class="btn btn-default btn-sm" style="float:right;margin-left:5px"><span class="glyphicon glyphicon-cog"></span> Settings</a>
+    <a class="btn btn-default btn-sm" ng-click="toggleTags()" style="float:right"><span class="glyphicon glyphicon-tag"></span> Fave Tags/Latest</a>
   </div>
   <div class="container">
-    <div ng-repeat="tag in mytags">
-	    <div class="col-xs-2">
-	    <div class="panel panel-default">
-		    <div class="panel-heading">{{tag}}</div>
-		    <table class="table" ng-controller="getLinksCtrl" ng-init="{{tag}}">
-			    <tr ng-repeat="article in links | filter:search">
-				    <td title="{{article.d}}">
-					    <a href="{{article.u}}"><img src="http://g.etfv.co/{{article.u}}" />{{article.d | limitTo:titleLimit}}</a></td>
-			    </tr>
-		    </table>
-	    </div>
-	    </div>
-    </div>
-    
+	<div ng-view></div>
   </div>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.js"></script>
+  <script src="https://code.angularjs.org/1.3.3/angular-route.js"></script>
+  <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
