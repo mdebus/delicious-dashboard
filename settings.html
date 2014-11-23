@@ -1,9 +1,12 @@
 <div style="width:70%;margin:auto" ng-controller="settingsStorageCtrl">
 	<h2>Settings</h2>
+	<form novalidate class="simple-form">
 	<p>Input your Delicious username:</p>
-	<input class="username" type="text" placeholder="username" ng-value="lsvalue">	
+	<input type="text" ng-model="$storage.username" placeholder="Username">	
+	<p>Private Key</p>
+	<input type="text" ng-model="$storage.privatekey" placeholder="Private Key">	
 
-
+	</form>
 	<p>
 		<a href="#/" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
 	</p>

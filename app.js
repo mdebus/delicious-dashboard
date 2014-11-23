@@ -14,7 +14,8 @@ var titleLimit = 34;
 var privateKey = "-FynrgFmtek897_Z93-mME6OwS41XnWHOpKs8zXY8sQ=";
 var deliciousURL = "http://feeds.delicious.com/v2/json/"
 
-app.controller('mainCtrl', function($scope) {
+app.controller('mainCtrl', function($scope, $localStorage) {
+	$scope.$storage = $localStorage;
 	$scope.mytags = mytags;
 	$scope.titleLimit = titleLimit;
 	angular.forEach(document.querySelectorAll('.main-search'), function(elem) { elem.focus(); });
@@ -26,7 +27,7 @@ app.controller('mainCtrl', function($scope) {
 		}
 	}
 });
-app.controller('getLinksCtrl', function($scope, $http) {
+app.controller('getLinksCtrl', function($scope,$http) {
 	if (!$scope.tag) throw new Error("No Tag for LinksController");
 	if ($scope.tag == 'latest') { $scope.tag = '' } else { $scope.tag = '/' + $scope.tag };
 	$http.get(deliciousURL + username + $scope.tag + '?count=100;private=' + privateKey).then(function(articlesResponse) {
@@ -36,9 +37,5 @@ app.controller('getLinksCtrl', function($scope, $http) {
 
 app.controller('settingsStorageCtrl', function($scope, $localStorage) {
 //	if (!$scope.lsvalue) throw new Error("No lsvalue for settingsStorageController");
-
-	$scope.$storage = $localStorage.$default({ x: 42 });
-	
 });
-
 
