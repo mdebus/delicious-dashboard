@@ -5,7 +5,8 @@
 	    <table class="table" ng-controller="getLinksCtrl" ng-init="{{tag}}">
 		    <tr ng-repeat="article in links | filter:search">
 			    <td title="{{article.d}}">
-				    <a href="{{article.u}}"><img src="http://g.etfv.co/{{article.u}}" />{{article.d | limitTo:titleLimit}}</a>
+				    <!--<a href="{{article.u}}"><img src="http://g.etfv.co/{{article.u}}" />{{article.d | limitTo:titleLimit}}</a>-->
+				    <a href="{{article.u}}"><img src="http://g.etfv.co/{{article.u}}" />{{article.d}}</a>
 			    </td>
 		    </tr>
 	    </table>

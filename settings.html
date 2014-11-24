@@ -1,10 +1,20 @@
 <div style="width:70%;margin:auto" ng-controller="settingsStorageCtrl">
 	<h2>Settings</h2>
 	<form novalidate class="simple-form">
-	<p>Input your Delicious username:</p>
-	<input type="text" ng-model="$storage.username" placeholder="Username">	
-	<p>Private Key</p>
-	<input type="text" ng-model="$storage.privatekey" placeholder="Private Key">	
+	<div class="input-group">
+		<span class="input-group-addon">Username</span>
+		<input type="text" class="username form-control" ng-model="$storage.username" placeholder="Input your Delicious Username">
+	</div>
+	<br>
+	<div class="input-group">
+		<span class="input-group-addon">Private Key</span>
+		<input type="text" class="privatekey form-control" ng-model="$storage.privatekey" placeholder="Input your Delicious private key to see private links too.">
+	</div>
+	<br>
+	<div class="input-group">
+		<span class="input-group-addon">Favorite Tags</span>
+		<input type="text" class="privatekey form-control" ng-model="$storage.favoritetags" placeholder="Input your favorite tags, comma separated, 11 max.">
+	</div>
 
 	</form>
 	<p>
