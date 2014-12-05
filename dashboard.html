@@ -2,14 +2,15 @@
     <div class="col-xs-2">
     <div class="panel panel-default">
 	    <div class="panel-heading">{{tag}}</div>
-	    <table class="table" ng-controller="getLinksCtrl" ng-init="{{tag}}">
-		    <tr ng-repeat="article in links | filter:search">
-			    <td title="{{article.d}}">
-				    <!--<a href="{{article.u}}"><img src="http://g.etfv.co/{{article.u}}" />{{article.d | limitTo:titleLimit}}</a>-->
-				    <a href="{{article.u}}"><img src="http://g.etfv.co/{{article.u}}" />{{article.d}}</a>
-			    </td>
-		    </tr>
-	    </table>
+	    <div class="panel-body">
+		    <table class="table" ng-controller="getLinksCtrl" ng-init="{{tag}}">
+			    <tr ng-repeat="link in links | filter:search">
+				    <td title="{{link.d}}">
+					    <a href="{{link.u}}"><img src="http://g.etfv.co/{{link.u}}" />{{link.d}}</a>
+				    </td>
+			    </tr>
+		    </table>
+	    </div>
     </div>
     </div>
 </div>

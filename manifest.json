@@ -1,0 +1,23 @@
+{
+	"name": "Delicious Dashboard",
+	"version": "1.0.0",
+	"manifest_version": 2,
+	"description": "Displays the links of your favorite tags on the new tab page. Easily searchable + customizeable.",
+	"icons": { 
+		"16": "images/socialteams-16.png",
+		"48": "images/socialteams-48.png",
+		"128": "images/socialteams-128.png"
+	},
+	"browser_action": {
+		"default_icon": "images/socialteams-notloggedin.png"
+	},
+	"permissions": [
+		"alarms",
+		"tabs",
+		"webNavigation",
+		"*://delicious.com/"
+	]
+	"chrome_url_overrides" : {
+    		"newtab": "index.html"
+	},
+}

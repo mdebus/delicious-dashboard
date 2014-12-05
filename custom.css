@@ -24,16 +24,19 @@ body {
 }
 .panel {
 	margin:0;
-	height: 47%;
-	overflow-y:auto;
 	border:0;
 	border-radius:0;
 }
 .panel-heading {
-	padding:2px 8px;
+	padding:1px 5px;
 	font-weight:bold;
 	border:none;
 	border-radius:0;
+}
+.panel-body {
+	height: 45%;
+	overflow-y:auto;
+	padding:0;
 }
 table {
 	font-size:12px;
