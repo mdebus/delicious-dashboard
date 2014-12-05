@@ -1,16 +1,18 @@
-<div ng-repeat="tag in mytags">
-    <div class="col-xs-2">
-    <div class="panel panel-default">
-	    <div class="panel-heading">{{tag}}</div>
-	    <div class="panel-body">
-		    <table class="table" ng-controller="getLinksCtrl" ng-init="{{tag}}">
-			    <tr ng-repeat="link in links | filter:search">
-				    <td title="{{link.d}}">
-					    <a href="{{link.u}}"><img src="http://g.etfv.co/{{link.u}}" />{{link.d}}</a>
-				    </td>
-			    </tr>
-		    </table>
-	    </div>
-    </div>
-    </div>
+<div ng-controller="dashboardCtrl">
+	<div ng-repeat="thistag in mytags">
+		<div class="col-xs-2">
+			<div class="panel panel-default panel-narrow">
+				<div class="panel-heading">{{thistag}}</div>
+				<div class="panel-body panel-narrow-body" ng-style="{height: columnheight}">
+					<table class="table" ng-controller="getLinksCtrl" ng-init="thistag">
+						<tr ng-repeat="link in links | filter:search">
+							<td title="{{link.d}}">
+								<a href="{{link.u}}"><img src="http://g.etfv.co/{{link.u}}" />{{link.d}}</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

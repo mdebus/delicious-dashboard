@@ -1,9 +1,7 @@
 'use strict';
 
-//var privateKey = "-FynrgFmtek897_Z93-mME6OwS41XnWHOpKs8zXY8sQ=";
 var titleLimit = 34;
 var deliciousURL = "http://feeds.delicious.com/v2/json/"
-//var deliciousURL = "https://api.del.icio.us/v2/json/"
 
 var app = angular.module('deliciousDashboardApp', ['ngRoute','ngStorage'])
 .config(function ($routeProvider) {
@@ -14,18 +12,28 @@ var app = angular.module('deliciousDashboardApp', ['ngRoute','ngStorage'])
 });
 
 app.controller('mainCtrl', function($scope, $localStorage, $location) {
-	$scope.$storage = $localStorage;
-	if($scope.$storage.favoritetags) { $scope.mytags = $scope.$storage.favoritetags.split(','); } else {  $scope.mytags = ['latest']; }
+	$scope.$storage = $localStorage.$default({ favoritetags: 'latest' });
 	if (!$scope.$storage.username) { $location.path('/settings'); }  
-	$scope.titleLimit = titleLimit;
-	angular.forEach(document.querySelectorAll('.main-search'), function(elem) { elem.focus(); });
 });
 
-app.controller('getLinksCtrl', function($scope,$http) {
-	if (!$scope.tag) throw new Error("No Tag for LinksController");
-	if ($scope.tag == 'latest') { $scope.tag = '' } else { $scope.tag = '/' + $scope.tag };
+app.controller('dashboardCtrl', function($scope, $window) {
+	$scope.mytags = $scope.$storage.favoritetags.split(',');
+	if($scope.mytags.length > 6) { 
+		$scope.columnheight = ($window.innerHeight - 35) / 2 - 20;
+	} else {
+		$scope.columnheight = $window.innerHeight - 55;
+	};
+	$scope.titleLimit = titleLimit;
+});
+
+app.controller('getLinksCtrl', function($scope, $http) {
+	if (!$scope.thistag) throw new Error("No Tag for LinksController");
+	if ($scope.thistag == 'latest') { $scope.thistag = '' } else { $scope.thistag = '/' + $scope.thistag };
 	if ($scope.$storage.privatekey) { var privateKey = ';private=' + $scope.$storage.privatekey; }
-	$http.get(deliciousURL + $scope.$storage.username + $scope.tag + '?count=100' + privateKey).then(function(articlesResponse) {
+	$http.get(deliciousURL + $scope.$storage.username + $scope.thistag + '?count=100' + privateKey).then(function(articlesResponse) {
     		$scope.links = articlesResponse.data;
 	})
+});
+
+app.controller('settingsCtrl', function($scope, $http) {
 });

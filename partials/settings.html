@@ -1,23 +1,32 @@
+<div ng-controller="settingsCtrl">
 <div style="width:70%;margin:auto">
 	<h2>Settings</h2>
 	<form novalidate class="simple-form">
-	<div class="input-group">
-		<span class="input-group-addon">Username</span>
-		<input type="text" class="username form-control" ng-model="$storage.username" placeholder="Input your Delicious Username">
-	</div>
-	<br>
-	<div class="input-group">
-		<span class="input-group-addon">Private Key</span>
-		<input type="text" class="privatekey form-control" ng-model="$storage.privatekey" placeholder="Input your Delicious private key to see private links too.">
-	</div>
-	<br>
-	<div class="input-group">
-		<span class="input-group-addon">Favorite Tags</span>
-		<input type="text" class="privatekey form-control" ng-model="$storage.favoritetags" placeholder="Input your favorite tags, comma separated, 11 max.">
-	</div>
-
+		<div class="input-group">
+			<span class="input-group-addon">Username</span>
+			<input type="text" class="username form-control" ng-model="$storage.username" placeholder="Input your Delicious Username">
+		</div>
+		<br>
+		<div class="input-group">
+			<span class="input-group-addon">Private API Key</span>
+			<input type="text" class="privatekey form-control" ng-model="$storage.privatekey" placeholder="(Optional) Input your Delicious private key to see private links too.">
+		</div>
+		<br>
+		<div class="input-group">
+			<span class="input-group-addon">Favorite Tags</span>
+			<input type="text" class="privatekey form-control" ng-model="$storage.favoritetags" placeholder="Input your favorite tags, comma separated, 11 max.">
+		</div>
 	</form>
 	<p>
-		<a href="#/" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+		<div class="panel panel-default">
+		  <div class="panel-body">
+			  <p>Enter up to 12 favorite tags, separated by commas. 'latest' will give you your latest links.</p>
+			  <p>Enter your Delicious API key to get your private links as well. For your API key, go to http://feeds.delicious.com/[your username] and click on "RSS: Private" on the right side. This link includes your API key.</p>
+		</div>
+</div>
 	</p>
+	<p>
+	<a href="#/" class="btn btn-primary" ng-click="updatetags()"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+	</p>
+</div>
 </div>

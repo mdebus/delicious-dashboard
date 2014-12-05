@@ -4,7 +4,6 @@
 	"manifest_version": 2,
 //	"default_locale": "en",
 	"description": "Displays the links of your favorite tags on the new tab page. Easily searchable + customizeable.",
-//	"content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
 	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
 	"icons": { 
 		"16": "img/deli-16.png",
