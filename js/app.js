@@ -7,14 +7,14 @@ var deliciousURL = "http://feeds.delicious.com/v2/json/"
 var app = angular.module('deliciousDashboardApp', ['ngRoute','ngStorage'])
 .config(function ($routeProvider) {
   $routeProvider
-	.when("/", { templateUrl: "dashboard.html" })
-	.when("/settings", { templateUrl: "settings.html" })
+	.when("/", { templateUrl: "partials/dashboard.html" })
+	.when("/settings", { templateUrl: "partials/settings.html" })
 	.otherwise({ redirectTo: "/" });
 });
 
 app.controller('mainCtrl', function($scope, $localStorage, $location) {
 	$scope.$storage = $localStorage;
-	$scope.mytags = $scope.$storage.favoritetags.split(',');
+	if($scope.$storage.favoritetags) { $scope.mytags = $scope.$storage.favoritetags.split(','); } else {  $scope.mytags = ['latest']; }
 	if (!$scope.$storage.username) { $location.path('/settings'); }  
 	$scope.titleLimit = titleLimit;
 	angular.forEach(document.querySelectorAll('.main-search'), function(elem) { elem.focus(); });
