@@ -14,7 +14,7 @@
 	"permissions": [
 		"tabs",
 		"webNavigation",
-		"*://delicious.com/"
+		"http://feeds.delicious.com/"
 	],
 	 "web_accessible_resources" :[
 		"index.html",

@@ -3,6 +3,7 @@
 //var privateKey = "-FynrgFmtek897_Z93-mME6OwS41XnWHOpKs8zXY8sQ=";
 var titleLimit = 34;
 var deliciousURL = "http://feeds.delicious.com/v2/json/"
+//var deliciousURL = "https://api.del.icio.us/v2/json/"
 
 var app = angular.module('deliciousDashboardApp', ['ngRoute','ngStorage'])
 .config(function ($routeProvider) {
