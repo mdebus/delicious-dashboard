@@ -7,7 +7,8 @@
 					<table class="table" ng-controller="getLinksCtrl" ng-init="thistag">
 						<tr ng-repeat="link in links | filter:search">
 							<td title="{{link.d}}">
-								<a href="{{link.u}}"><img src="http://www.google.com/s2/favicons?domain={{link.u}}" />{{link.d}}</a>
+							    <a href="{{link.u}}"><img src="http://www.google.com/s2/favicons?domain={{link.u}}" />{{link.d}}</a>
+								<!--<a href="{{link.u}}"><img src="chrome://favicon/{{link.u}}" />{{link.d}}</a>-->
 							</td>
 						</tr>
 					</table>

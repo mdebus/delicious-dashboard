@@ -4,7 +4,7 @@
 	"manifest_version": 2,
 //	"default_locale": "en",
 	"description": "Displays the links of your favorite tags on the new tab page. Easily searchable + customizeable.",
-	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+//	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
 	"icons": { 
 		"16": "img/deli-16.png",
 		"48": "img/deli-48.png",
@@ -13,6 +13,7 @@
 	"permissions": [
 		"tabs",
 		"webNavigation",
+		"chrome://favicon/",
 		"http://feeds.delicious.com/"
 	],
 	 "web_accessible_resources" :[
@@ -20,6 +21,13 @@
 	 	"partials/dashboard.html",
 		"partials/settings.html"
 	],
+	"background": {
+		"persistent": false,
+		"page": "background.html"
+	},
+	"browser_action": {
+		"default_icon": "img/deli-48.png"
+	},
 	"chrome_url_overrides" : {
     		"newtab": "index.html"
 	}
